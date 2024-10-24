@@ -11,7 +11,10 @@ const App = () => {
     setTodos(updatedTodoList)
   }
 
-  const updateTodo = () => {}
+  const updateTodo = (id, eachTodo) => {
+    const updatedData = todos.map((prevTodoState) => prevTodoState.id === id ? eachTodo : prevTodoState)
+    setTodos(updatedData)
+  }
   
   const deleteTodo = () => {}
   
