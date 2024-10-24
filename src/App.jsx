@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { TodoProvider } from './contexts/createTodoContext'
+import TodoForm from './components/TodoForm'
 
 const App = () => {
 
@@ -33,7 +34,7 @@ const App = () => {
 
           {/* TodoForm component below */}
           <div className='mb-4'>
-            {/* <TodoForm /> */}
+            <TodoForm />
           </div>
 
           {/* Loop and add each todo-item below */}
