@@ -16,7 +16,10 @@ const App = () => {
     setTodos(updatedData)
   }
   
-  const deleteTodo = () => {}
+  const deleteTodo = (id) => {
+    const updatedDataAfterDelete = todos.filter((eachTodo) => eachTodo.id !== id);
+    setTodos(updatedDataAfterDelete)
+  }
   
   const toggleComplete = () => {}
   
