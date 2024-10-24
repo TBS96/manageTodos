@@ -21,7 +21,9 @@ const App = () => {
     setTodos(updatedDataAfterDelete)
   }
   
-  const toggleComplete = () => {}
+  const toggleComplete = (id) => {
+    setTodos((prevTodos) => prevTodos.map((prevTodo) => prevTodo.id === id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo))
+  }
   
   return (
     <TodoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
