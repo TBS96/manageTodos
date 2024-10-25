@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TodoProvider } from './contexts/createTodoContext'
-import TodoForm from './components/TodoForm'
+import { TodoForm } from './components/index'
 
 const App = () => {
 
