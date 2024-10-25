@@ -28,7 +28,7 @@ const TodoItem = ({eachTodoObj}) => {
             <input type="search" className={`border outline-none w-full bg-transparent rounded-lg ${isTodoEditable ? "border-black/10 px-2 bg-white/50" : "border-transparent"} ${eachTodoObj.completed ? "line-through" : ""}`} value={todoMsg} onChange={(e) => setTodoMsg(e.target.value)} readOnly={!isTodoEditable} />
 
             {/* edit, save btn */}
-            <button className={`inline-flex size-8 rounded-lg text-sm border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50 ${isTodoEditable ? "hover:bg-green-300" : "hover:bg-blue-500"}`} 
+            <button className={`inline-flex size-8 rounded-lg text-sm border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50 ${isTodoEditable ? "hover:bg-green-300" : "hover:bg-cyan-500"}`} 
                 onClick={() => {
                     if (eachTodoObj.completed) return
 
