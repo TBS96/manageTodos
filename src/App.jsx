@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TodoProvider } from './contexts'
 import { TodoForm, TodoItem } from './components/index'
 
@@ -25,6 +25,17 @@ const App = () => {
   const toggleComplete = (id) => {
     setTodos((prevTodos) => prevTodos.map((prevTodo) => prevTodo.id === id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo))
   }
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem('todos')) // fetch todos from local storage on app load
+    if (todos && todos.length > 0) {
+      setTodos(todos)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))  // save todos to local storage on state change
+  }, [todos])
   
   return (
     <TodoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
