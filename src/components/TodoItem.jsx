@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useTodo } from '../contexts/createTodoContext'
+import { useTodo } from '../contexts'
 
 const TodoItem = ({eachTodoObj}) => {
 
     const { updateTodo, deleteTodo, toggleComplete } = useTodo()
+
     const [todoMsg, setTodoMsg] = useState(eachTodoObj.eachTodo) // eachTodo.eachTodo refers to the eachTodo object's eachTodo property
     const [isTodoEditable, setIsTodoEditable] = useState(false)
 
@@ -39,7 +40,7 @@ const TodoItem = ({eachTodoObj}) => {
             disabled={eachTodoObj.completed}>{isTodoEditable ? "💾" : "📝"}</button>
 
             {/* delete btn */}
-            <button className='inline-flex size-8 rounded-lg text-sm border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0' onClick={deleteTodo(eachTodo.id)}>🗑️</button>
+            <button className='inline-flex size-8 rounded-lg text-sm border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0' onClick={() => deleteTodo(eachTodoObj.id)}>🗑️</button>
 
         </div>
     )

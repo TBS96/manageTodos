@@ -18,7 +18,7 @@ const App = () => {
   }
   
   const deleteTodo = (id) => {
-    const updatedDataAfterDelete = todos.filter((eachTodo) => eachTodo.id !== id);
+    const updatedDataAfterDelete = todos.filter((eachTodoObj) => eachTodoObj.id !== id);
     setTodos(updatedDataAfterDelete)
   }
   
@@ -39,9 +39,9 @@ const App = () => {
 
           {/* Loop and add each todo-item below */}
           <div className='flex flex-wrap gap-y-3'>
-            {todos.map(eachTodo => (
-              <div key={eachTodo.id} className='w-full'>
-                <TodoItem eachTodoObj={eachTodo} />
+            {todos.map((eachTodoObj) => (
+              <div key={eachTodoObj.id} className='w-full'>
+                <TodoItem eachTodoObj={eachTodoObj} />
               </div>
             ))}
           </div>
