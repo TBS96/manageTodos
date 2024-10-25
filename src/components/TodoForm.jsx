@@ -9,7 +9,7 @@ const TodoForm = () => {
     const add = (e) => {
         e.preventDefault()
 
-        if(!eachTodo) return alert('Please enter a task!')
+        if(!eachTodo.trim()) return alert('Please enter a task!')
         addTodo({eachTodo, completed: false})
         setEachTodo('')
     }
