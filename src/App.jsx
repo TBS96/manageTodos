@@ -19,6 +19,7 @@ const App = () => {
   
   const deleteTodo = (id) => {
     const updatedDataAfterDelete = todos.filter((eachTodoObj) => eachTodoObj.id !== id);
+    alert('Are you sure you want to delete this task?');
     setTodos(updatedDataAfterDelete)
   }
   
