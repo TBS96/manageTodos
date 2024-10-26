@@ -5,10 +5,11 @@ import { TodoForm, TodoItem } from './components/index'
 const App = () => {
 
   const [todos, setTodos] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   const addTodo = (eachTodo) => {
     const newTodo = { id: Date.now(), ...eachTodo };
-    const updatedTodoList = [newTodo, ...todos];
+    const updatedTodoList = [...todos, newTodo];
     setTodos(updatedTodoList)
   }
 
@@ -26,6 +27,8 @@ const App = () => {
   const toggleComplete = (id) => {
     setTodos((prevTodos) => prevTodos.map((prevTodo) => prevTodo.id === id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo))
   }
+
+  const handleSearch = (term) => setSearchTerm(term)
 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem('todos')) // fetch todos from local storage on app load
@@ -46,14 +49,14 @@ const App = () => {
 
           {/* TodoForm component below */}
           <div className='mb-4'>
-            <TodoForm />
+            <TodoForm onSearch={handleSearch} />
           </div>
 
           {/* Loop and add each todo-item below */}
           <div className='flex flex-wrap gap-y-3'>
             {todos.map((eachTodoObj) => (
               <div key={eachTodoObj.id} className='w-full'>
-                <TodoItem eachTodoObj={eachTodoObj} />
+                <TodoItem eachTodoObj={eachTodoObj} searchTerm={searchTerm} />
               </div>
             ))}
           </div>
